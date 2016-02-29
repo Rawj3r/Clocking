@@ -3,7 +3,11 @@ package za.co.com.state.empire.clocking;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.sensoro.beacon.kit.Beacon;
+import com.sensoro.beacon.kit.BeaconManagerListener;
 import com.sensoro.cloud.SensoroManager;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +36,24 @@ public class MainActivity extends AppCompatActivity {
             } catch (Exception e) {
                 e.printStackTrace(); // Fetch abnormal info
             }
+
+            sensoroManager.addBroadcastKey("0117C5393A7A");
+            BeaconManagerListener beaconManagerListener = new BeaconManagerListener() {
+                @Override
+                public void onNewBeacon(Beacon beacon) {
+
+                }
+
+                @Override
+                public void onGoneBeacon(Beacon beacon) {
+
+                }
+
+                @Override
+                public void onUpdateBeacon(ArrayList<Beacon> arrayList) {
+
+                }
+            };
         }
     }
 }
