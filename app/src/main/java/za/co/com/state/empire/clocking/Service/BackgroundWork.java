@@ -107,6 +107,9 @@ public class BackgroundWork extends Application implements BeaconManagerListener
         sendBroadcast(intent);
 
         Intent intent1 = new Intent(this, TransActivity.class);
+        intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent1.putExtra("type", 0);
+        startActivity(intent1);
     }
 
     @Override
