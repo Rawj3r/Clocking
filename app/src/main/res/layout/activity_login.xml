@@ -6,6 +6,13 @@
     android:orientation="vertical"
     tools:context=".Login">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40pt"
+        android:text="Test"
+        android:layout_marginTop="150dp"
+        android:layout_gravity="center"/>
 
 
 </LinearLayout>
