@@ -43,7 +43,7 @@ public class Login extends AppCompatActivity{
                 public void onNewBeacon(Beacon beacon) {
                     // new beacon found
                     if (beacon.getSerialNumber().equals(BEACON_SN)){
-                        System.out.printf("%s", "New beacon" + BEACON_SN + "found");
+                        System.out.printf("%s", "New beacon" + BEACON_SN + " found");
                     }
                 }
 
@@ -74,8 +74,8 @@ public class Login extends AppCompatActivity{
             return;
         }
 
-        DecimalFormat format = new DecimalFormat("#");
+        DecimalFormat format = new DecimalFormat(" #");
         String distance = format.format(beacon.getAccuracy() *100);
-        System.out.println("" + distance + " cm");
+        System.out.println( "" + distance + " cm");
     }
 }
