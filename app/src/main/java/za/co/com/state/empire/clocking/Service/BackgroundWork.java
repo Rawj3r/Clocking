@@ -8,11 +8,12 @@ import com.sensoro.beacon.kit.Beacon;
 import com.sensoro.beacon.kit.BeaconManagerListener;
 import com.sensoro.cloud.SensoroManager;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * Created by empirestate on 3/2/16.
+ * Created by Roger Nkosi on 3/2/16.
  */
 public class BackgroundWork extends Application implements BeaconManagerListener{
 
@@ -118,6 +119,19 @@ public class BackgroundWork extends Application implements BeaconManagerListener
 
     @Override
     public void onUpdateBeacon(ArrayList<Beacon> arrayList) {
+        for (int i = 0; i < arrayList.size();  i++){
+            Beacon beacon = arrayList.get(i);
+            updateView(beacon);
+        }
+    }
 
+    private void updateView(Beacon beacon) {
+        if (beacon == null){
+            return;
+        }
+
+        DecimalFormat format = new DecimalFormat(" #");
+        String distance = format.format(beacon.getAccuracy() *100);
+        Log.e(beacon.getSerialNumber(), "" + distance + " cm");
     }
 }
